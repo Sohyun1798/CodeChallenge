@@ -1,35 +1,45 @@
-import numpy
+# chess board: WB
+wb = [['W', 'B', 'W', 'B', 'W', 'B', 'W', 'B'],
+ ['B', 'W', 'B', 'W', 'B', 'W', 'B', 'W'],
+ ['W', 'B', 'W', 'B', 'W', 'B', 'W', 'B'],
+ ['B', 'W', 'B', 'W', 'B', 'W', 'B', 'W'],
+ ['W', 'B', 'W', 'B', 'W', 'B', 'W', 'B'],
+ ['B', 'W', 'B', 'W', 'B', 'W', 'B', 'W'],
+ ['W', 'B', 'W', 'B', 'W', 'B', 'W', 'B'],
+ ['B', 'W', 'B', 'W', 'B', 'W', 'B', 'W']]
+
+# chess board: BX
+bw = [['B', 'W', 'B', 'W', 'B', 'W', 'B', 'W'],
+ ['W', 'B', 'W', 'B', 'W', 'B', 'W', 'B'],
+ ['B', 'W', 'B', 'W', 'B', 'W', 'B', 'W'],
+ ['W', 'B', 'W', 'B', 'W', 'B', 'W', 'B'],
+ ['B', 'W', 'B', 'W', 'B', 'W', 'B', 'W'],
+ ['W', 'B', 'W', 'B', 'W', 'B', 'W', 'B'],
+ ['B', 'W', 'B', 'W', 'B', 'W', 'B', 'W'],
+ ['W', 'B', 'W', 'B', 'W', 'B', 'W', 'B']]
 
 def get_input():
 
-    N = input()
-    M = input()
+   N, M = map(int, input().split()) #map(fun, iter)
+   input_matrix = [list(input()) for _ in range(N)]
+   
+   return input_matrix
 
-    matrix = np.zeros(N,M)
+def compare(wb, bw, input_matrix):
     
-    for i in range(N):
-        for j in range(M):
-            matrix[i][j] = input()
+    wb_cnt = 0
+    bw_cnt = 0
 
-    return matrix
+    for i in range(8):
+        for j in range(8):
+            if wb[i][j] != input_matrix[i][j]:
+                wb_cnt = wb_cnt + 1
+            if bw[i][j] != input_matrix[j][i]:
+                bw_cnt = bw_cnt + 1
 
-def count_WB():
+    return min(wb_cnt, bw_cnt)
 
-    matrix = get_input()
 
-    cnt = 0
-
-    for i in range(N): #
-        for j in range(M): #
-            
-            if (i+1)%2 == 1:
-                temp = matrix[i][j]
-
-                if temp == "W" and (j+1)%2 == 1:
-
-            elif (i+1)%2==1 and temp == "W":
-
-def count_BW():
     
 
 
