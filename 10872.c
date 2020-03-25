@@ -10,7 +10,10 @@ int factorial(int n){
 
 int main(){
 
-    int n = 5;
+    int n = 0;
+
+    printf("0부터 12사이의 정수 입력");
+    scanf("%d", &n);
 
     printf("%d", factorial(n));
 
