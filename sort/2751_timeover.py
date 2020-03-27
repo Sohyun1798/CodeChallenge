@@ -1,4 +1,4 @@
-from heapq import heappush, heappop
+from heapq import heappush, heappop #or just use heapify
 
 def get_input():
 
