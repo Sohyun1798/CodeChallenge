@@ -1,10 +1,10 @@
 def get_input():
 
-    n = input()
+    n = int(input())
     a = []
 
     for i in range(n):
-        a.append(input())
+        a.append(int(input()))
 
     a = list(set(a))
 
