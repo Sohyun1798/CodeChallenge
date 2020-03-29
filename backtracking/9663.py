@@ -1,22 +1,25 @@
-import numpy as np
+n = int(input())
+ans = 0
+a, b, c = [False]*n, [False]*(2*n-1), [False]*(2*n-1)
 
-N = int(input())
-check = np.zeros(N,N)
+def n_queen(i):
 
-def n_queen(s, n, check):
+    global ans
 
-    for i in range(s,n):
-        for j in range(s,n):
-            if check[i][j] == 1:
-                continue
-            check[i][0:n] = 1
-            check[0:n][j] = 1
-        
-        n_queen(s+1, n, check)
+    if i == n:
+        ans += 1
+        return
+
+    for j in range(n):
+        if not (a[j] or b[i+j] or c[i-j+n-1]):
+            a[j] = b[i+j] = c[i-j+n-1] = True
+            n_queen(i+1)
+            a[j] = b[i+j] = c[i-j+n-1] = False
+
+n_queen(0)
+print(ans)
 
 
 
-    pass
 
 
-check = []
