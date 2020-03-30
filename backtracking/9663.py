@@ -7,6 +7,7 @@ def n_queen(i):
     global ans
 
     if i == n:
+        print(a,b,c)
         ans += 1
         return
 
@@ -18,8 +19,3 @@ def n_queen(i):
 
 n_queen(0)
 print(ans)
-
-
-
-
-
