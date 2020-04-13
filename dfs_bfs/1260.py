@@ -3,7 +3,7 @@ def get_input():
     n = list(map(int, input().split()))
     line = []
     
-    for i in range(n[1]):
+    for _ in range(n[1]):
         line.append(list(map(int, input().split())))
 
     return n, line
