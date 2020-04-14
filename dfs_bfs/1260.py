@@ -9,7 +9,6 @@ def get_input():
     return n, line
 
 def dfs_1260():
-
     pass
 
 def bfs_1260():
