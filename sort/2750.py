@@ -3,7 +3,7 @@ def get_input():
     n = int(input())
     a = []
 
-    for i in range(n):
+    for _ in range(n):
         a.append(int(input()))
 
     return a
