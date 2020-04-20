@@ -34,6 +34,15 @@ def bfs_1260(start, matrix):
 
             if matrix[current_node][search_node] and search_node not in foot_print:
                 foot_print += [search_node]
-                queue += search_node
+                queue += [search_node]
     
     return foot_print
+
+def main():
+    
+    v, matrix = get_input()
+    print(*dfs_1260(v,matrix,[]))
+    print(*bfs_1260(v,matrix))
+
+if __name__ == "__main__":
+    main()
