@@ -2,7 +2,8 @@
 #define MAX 1000000
 #define SWAP(x,y){int t = x; x = y; y = t;}
 
-int N, arr[MAX];
+int N;
+int arr[MAX];
 
 void Qsort(int *array, int left, int right){
 
