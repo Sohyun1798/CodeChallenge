@@ -28,6 +28,3 @@ while n > 0:
             print(pq[0])
             pq.pop(0)
             pqlen -= 1
-        
-
-    
