@@ -1,5 +1,3 @@
-import sys
-
 pq = []
 pqlen = 0
 
