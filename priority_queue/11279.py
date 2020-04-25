@@ -28,7 +28,8 @@ while n > 0:
             print(0)
         else:
             print(pq[0])
-            pq=[]
+            pq.pop(0)
+            pqlen -= 1
         
 
     
