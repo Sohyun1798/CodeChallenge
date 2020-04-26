@@ -13,7 +13,7 @@ def divide_conquer(x, y, N):
     tmp_cnt = 0
 
     for i in range(x, x+N):
-        for j in range(y, y+n):
+        for j in range(y, y+N):
             if M[i][j]:
                 tmp_cnt += 1
     
