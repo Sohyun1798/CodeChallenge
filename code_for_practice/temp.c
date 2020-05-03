@@ -1,18 +1,85 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
-int main(){
+int h[100001];
+int currentSize = 0;
 
-    int n1 = 0; int n2 = 0;
+int pop()
+{
+  int nReturn = h[1];
 
-    printf("정수 입력:\n");
-    scanf("%d %d", &n1, &n2);
-
-    if(abs(n1-n2)<=10){
-        printf("차이가 10이하");
+  int reloc = 1;
+  int val = h[currentSize];
+  currentSize--;
+  while (reloc * 2 <= currentSize) {
+    int childLoc = reloc * 2;
+    if (childLoc <= currentSize) {
+      childLoc = h[childLoc] > h[childLoc + 1] ? childLoc : childLoc + 1;
     }
-    else printf("11이상 차이 남");
 
-    return 0;
+    if (val < h[childLoc]) {
+      h[reloc] = h[childLoc];
+      reloc = childLoc;
+    }
+    else {
+      break;
+    }
+  }
+
+  h[reloc] = val;
+  
+  return nReturn;
 }
 
+void push(int a)
+{
+  currentSize++;
+
+  
+  int loc = currentSize;
+  h[loc] = a;
+  while (loc >= 1) {
+    int parent = loc / 2;
+    if (parent >= 1) {
+      if (h[loc] > h[parent]) {
+        h[loc] = h[parent];
+        h[parent] = a;
+        loc = parent;
+        continue;
+      }
+      else {
+        break;
+      }
+    }
+    else {
+      break;
+    }
+  }
+}
+
+int main(void) {
+  
+  int n;
+
+  scanf("%d", &n);
+
+  for (int i = 0; i < n; i++) {
+    int x;
+    scanf("%d", &x);
+    if (!x) {
+      if (currentSize < 1) {
+        printf("0\n");
+        continue;
+      }
+      else {
+        printf("%d\n", pop());
+      }
+    }
+    else {
+      push(x);
+    }
+
+  }
+  return 0;
+}
