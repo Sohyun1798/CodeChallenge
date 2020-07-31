@@ -38,3 +38,5 @@ def solution(S):
                 LetterFreqMap[it-1] = 1
   
     return deletions
+
+    
