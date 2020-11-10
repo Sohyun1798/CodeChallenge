@@ -4,11 +4,10 @@ def get_input():
 
     return n
 
-def dp_12852():
+def dp_12852(n):
 
-    n = get_input()
     ans = [0 for _ in range(n+1)]
-    m = n
+    before = [0 for _ in range(n+1)]
 
     for i in range(1,n+1):
 
@@ -16,17 +15,39 @@ def dp_12852():
             ans[i] = 0
         else:
             ans[i] = ans[i-1]+1
+            before[i] = i-1
 
             if(i%2 == 0):
                 m = int(i/2)
                 temp = ans[m] + 1
-                ans[i] = min(ans[i], temp)
+                if ans[i] > temp:
+                    ans[i] = temp
+                    before[i] = m
             
             if(i%3 == 0):
                 m = int(i/3)
                 temp = ans[m] + 1
-                ans[i] = min(ans[i], temp)
+                if ans[i] > temp:
+                    ans[i] = temp
+                    before[i] = m
 
-    return ans[n]
+    return ans[n], before
 
-print(dp_12852())
+def main():
+
+    n = get_input()
+    ans, before = dp_12852(n)
+    step = []
+
+    print(ans)
+    
+    i = n
+
+    while i!=1:
+        step.append(before[i])
+        i = before[i]
+
+    print(*step)
+
+if __name__ == "__main__":
+    main()
