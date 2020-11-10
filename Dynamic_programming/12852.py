@@ -42,6 +42,7 @@ def main():
     print(ans)
     
     i = n
+    step.append(i)
 
     while i!=1:
         step.append(before[i])
