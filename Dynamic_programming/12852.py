@@ -27,11 +27,6 @@ def dp_12852():
                 temp = ans[m] + 1
                 ans[i] = min(ans[i], temp)
 
-            if i:
-                m = i-1
-                temp = ans[m] + 1
-                ans[i] = min(ans[i], temp)
-
-    return ans
+    return ans[n]
 
 print(dp_12852())
