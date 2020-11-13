@@ -5,27 +5,30 @@ def get_input():
     input_list = []
     input_list.extend(list(map(int, input().split())))
     
-    return input_list
+    return n, input_list
 
 def dp_14002():
 
-    input_list = get_input()
-    temp = []
+    n, input_list = get_input()
 
-    for i in range(len(input_list)):
+    ans = [0 for _ in range(n+1)]
+    before = [0 for _ in range(n+1)]
 
-        if i == 0:
-            temp.append(input_list[i])
-            j = 0
+    for i in range(1, n+1):
 
+        if len(input_list) == 1:
+            break
         else:
-            if temp[j] < input_list[i]:
-                temp.append(input_list[i])
-                j += 1
+            if input_list[i-1] < input_list[i]:
+                temp = ans[i-1] + 1
+                if ans[i] < temp:
+                    ans[i] = temp
 
-    ans = len(temp)
 
-    return ans, temp
+
+
+    
+
 
 print(dp_14002())
 
