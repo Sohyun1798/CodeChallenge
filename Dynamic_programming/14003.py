@@ -6,9 +6,15 @@ seq = [int(x) for x in sys.stdin.readline().split()]
 dp = [1 for _ in range(n)]
 
 for i in range(n):
-    for j in range(i):
-        if seq[j] < seq[i]:
-            dp[i] = max(dp[i], dp[j]+1)
+    
+    low = 0
+    high = n-1
+
+    while low <= high:
+#for i in range(n):
+#    for j in range(i):
+#        if seq[j] < seq[i]:
+#            dp[i] = max(dp[i], dp[j]+1)
 
 l_cnt = max(dp)
 idx = dp.index(l_cnt)
