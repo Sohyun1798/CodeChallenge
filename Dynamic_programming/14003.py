@@ -11,6 +11,7 @@ for i in range(n):
     high = n-1
 
     while low <= high:
+
 #for i in range(n):
 #    for j in range(i):
 #        if seq[j] < seq[i]:
