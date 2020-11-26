@@ -37,5 +37,4 @@ while cur_index!=-1:#추적하여 넣기
     result.append(A[cur_index])
     cur_index=Trace[cur_index]
  
-for i in range(len(result)-1,-1,-1):#반대로 출력
-    print(result[i],end=" ")
+print(*result[::-1])
