@@ -3,9 +3,33 @@ import sys
 n = int(input())
 seq = [int(x) for x in sys.stdin.readline().split()]
 
-dp = [1 for _ in range(n)]
+dp = []
+index = [0]*n
 
 for i in range(n):
+
+    if i == 0:
+        dp.append(seq[i])
+
+    
+    low = 0
+    high = len(dp)-1
+
+    while low <= high:
+        mid = (low+high)//2
+        print("mid=%d", mid)
+
+        if dp[mid] < A[i]:
+            low = mid+1
+        else:
+            high = mid-1
+    
+    if low >= len(dp):
+        index[i] = 
+        dp.append()
+
+    low = 0
+    high = 
     for j in range(i):
         if seq[j] < seq[i]:
             dp[i] = max(dp[i], dp[j]+1)

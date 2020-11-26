@@ -5,7 +5,6 @@ A=list(map(int,sys.stdin.readline().split()))
 DP=[[-1000000001,-1]]#현재 인덱스 저장
 Trace=[0]*N#이전 인덱스가 어디인지 저장
  
- 
 #2분법을 통해 순서찾기
 for i in range(N):
  
