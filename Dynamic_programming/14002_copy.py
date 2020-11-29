@@ -25,4 +25,13 @@ for i in range(N):
         DP[low][1] = i
         Trace[i] = DP[low-1][1]
 
-        
+print(len(DP)-1)
+
+result = []
+cur_index = DP[len(DP)-1][1]
+
+while cur_index != -1:
+    result.append(A[cur_index])
+    cur_index = Trace[cur_index]
+
+print(*result[::-1])
