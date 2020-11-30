@@ -7,4 +7,9 @@ def get_input():
     
     return N, M, mem, cost
 
+def dp_7579():
+
+    N, M, mem, cost = get_input()
+
+    
 print(get_input())
