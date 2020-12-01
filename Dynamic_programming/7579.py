@@ -11,5 +11,17 @@ def dp_7579():
 
     N, M, mem, cost = get_input()
 
-    
+    total = M
+    ans = [0]*N
+
+    for i in range(N):
+        for j in range(N):
+            temp = 
+
+            
+            
+
+
+
+
 print(get_input())
