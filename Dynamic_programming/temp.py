@@ -1,4 +1,5 @@
-N, M = map(int, input().split())
+temp = [1,1,2,2]
 
-print(N)
-print(M)
+max_v = max(temp)
+max_i = temp.index(max_v)
+print(max_i)
