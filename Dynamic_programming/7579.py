@@ -12,11 +12,26 @@ def dp_7579():
     N, M, mem, cost = get_input()
 
     total = M
-    ans = [0]*N
+    ans= [[]*N]*N
+    print(ans)
+    print(ans[1])
 
     for i in range(N):
         for j in range(N):
-            temp = 
+
+            if i == 0:
+                if j == 0:
+                    ans[i].append([0,0])
+                else: ans[i].append([mem[i]+mem[j], cost[i]+cost[j]])
+          
+            else:
+                if i == j:
+                    ans[i].append(ans[i-1][j])
+                else:
+                    ans[i].append([ans[i-1][j][0]+mem[j], ans[i-1][j][1]+cost[j]])
+
+    return ans
+
 
             
             
@@ -24,4 +39,6 @@ def dp_7579():
 
 
 
-print(get_input())
+temp = dp_7579()
+
+print(temp[1])
