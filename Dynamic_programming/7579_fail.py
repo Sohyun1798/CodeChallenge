@@ -12,22 +12,31 @@ def dp_7579():
     N, M, mem, cost = get_input()
 
     total = M
-    ans= [[0,0]*N]*N #solve this later
-    print(ans)
-    print(ans[1])
+    table = []
+    print(table)
 
     for i in range(N+1):
-         for j in range(N+1):
+        temp = []
 
-             ans[i].append(j)
+        for j in range(N+1):
 
-
-    return ans
-
-
+            if i == 0:
+                if j == 0:
+                    temp.append(0)
+                else: temp.append(mem[j-1])
             
-            
+            else:
+                if i == j:
+                    temp.append(table[i-1][j])
+                else:
+                    temp.append(table[i-1][j] + mem[i-1])
 
+        if min(temp) >= M:
+            break
+
+        else: table.append(temp)
+                   
+    return table
 
 
 
