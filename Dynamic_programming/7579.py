@@ -11,14 +11,11 @@ def dp_7579():
 
     N, M, mem, cost = get_input()
 
-    table = []
+    memList = [0]*(N+1)
     costList = [0]*(N+1)
     ans = 1000000
-    print(table)
 
     for i in range(N+1):
-        temp = []
-
         for j in range(N+1):
 
             if i == 0:
@@ -31,24 +28,22 @@ def dp_7579():
             
             else:
                 if i == j:
-                    m_value = table[i-1][j]
-                    #c_value = costList[j]
+                    m_value = memList[j]
+                    c_value = costList[j]
                 else:
-                    m_value = table[i-1][j] + mem[i-1]
+                    m_value = memList[i-1][j] + mem[i-1]
                     c_value = costList[j] + cost[i-1]
 
             costList[j] = c_value
-            temp.append(m_value)
+            memList[j] = m_value
 
             if m_value >= M:
                 ans = min(ans, c_value)
 
-        if min(temp) >= M:
+        if min(memList) >= M:
             break
 
-        else: table.append(temp)
-                   
-    return ans
+    return memList, costList, ans
 
 
 print(dp_7579())
