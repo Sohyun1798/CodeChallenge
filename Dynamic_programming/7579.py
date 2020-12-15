@@ -13,7 +13,7 @@ def dp_7579():
 
     memList = [0]*(N+1)
     costList = [0]*(N+1)
-    ans = 1000000
+    ans = 987654321
 
     for i in range(N+1):
         for j in range(N+1):
@@ -31,7 +31,7 @@ def dp_7579():
                     m_value = memList[j]
                     c_value = costList[j]
                 else:
-                    m_value = memList[i-1][j] + mem[i-1]
+                    m_value = memList[j] + mem[i-1]
                     c_value = costList[j] + cost[i-1]
 
             costList[j] = c_value
@@ -43,7 +43,6 @@ def dp_7579():
         if min(memList) >= M:
             break
 
-    return memList, costList, ans
-
+    return ans
 
 print(dp_7579())
