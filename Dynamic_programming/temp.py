@@ -1,22 +1,28 @@
-temp = [1,1,2,2]
+import sys
 
-max_v = max(temp)
-max_i = temp.index(max_v)
-print(max_i)
+input = sys.stdin.readline
+deque = []
+n  = int(input())
 
-for i in range(N+1):
- 
-        for j in range(N+1):
-
-            if i == 0:
-                if j == 0:
-                    ans[i].append([0,0])
-                else: ans[i].append([mem[j-1], cost[j-1]])
-          
-            else:
-                if i == j:
-                    ans[i].append(ans[i-1][j])
-                else:
-                    ans[i].append([ans[i-1][j][0]+mem[i-1], ans[i-1][j][1]+cost[i-1]])
-
-        print(ans[i])
+for i in range(n):
+    command = input().rstrip()
+    if " " in command :
+        a,b = command.split()
+        if a == 'push_front' : deque.insert(0,b)
+        elif a == 'push_back' : deque.append(b)
+    elif "pop_front" == command : 
+        if len(deque) == 0 : print(-1)
+        else : print(deque.pop(0))
+    elif "pop_back" == command : 
+        if len(deque) == 0 : print(-1)
+        else : print(deque.pop(-1))  
+    elif 'size' == command : print(len(deque))
+    elif 'empty' == command :
+        if len(deque) == 0 : print(1)
+        else : print(0)
+    elif 'front' == command :
+        if len(deque) == 0 : print(-1)
+        else : print(deque[0])
+    elif 'back' == command :
+        if len(deque) == 0 : print(-1)
+        else : print(deque[-1])
