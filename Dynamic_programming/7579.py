@@ -13,7 +13,7 @@ def dp_7579():
 
     memList = [0]*(N+1)
     costList = [0]*(N+1)
-    ans = 987654321
+    ans = sum(cost)
 
     for i in range(N+1):
         for j in range(N+1):
