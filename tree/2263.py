@@ -5,17 +5,24 @@ inorder = list(map(int, sys.stdin.readline().split()))
 postorder = list(map(int, sys.stdin.readline().split()))
 
 tree = {}
-left = []
-right = []
+
+io_left = []
+io_right = []
+
+po_left = []
+po_right = []
 
 rootNode = postorder.pop(-1)
 index = inorder.index(rootNode)
 
-left = postorder[:index]
-right = postorder[index:]
+po_left = postorder[:index]
+po_right = postorder[index:]
 
-tree[rootNode][1] = left.pop(-1)
-tree[rootNode][0] = right.pop(-1)
+io_left = inorder[:index]
+io_right = inorder[index+1:]
+
+tree[rootNode][1] = po_left.pop(-1)
+tree[rootNode][0] = po_right.pop(-1)
 
 
 
