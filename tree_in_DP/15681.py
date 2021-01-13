@@ -1,19 +1,21 @@
 def get_input():
 
     N, R, Q = map(int, input().split())
-
     node_graph = {i:[] for i in range(1, N+1)}
+
     query = [0]*(Q+1)
+    line = []
 
     for _ in range(N-1):
-        parent, child = map(int, input().split())
-        node_graph[parent] += [child]
+        left, right = map(int, input().split())
+        node_graph[left] += [right]
+        node_graph[right] += [left]
+      
+    for j in range(Q):
+        query[j+1] = int(input())
 
-    for i in range(Q):
-        query[i+1] = int(input())
+    return N, R, Q, line, query
 
-    return N, R, Q, node_graph, query
-
-N, R, Q, node_graph, query = get_input()
-print(node_graph)
+N, R, Q, line, query = get_input()
+print(line)
 
