@@ -16,7 +16,34 @@ def get_input():
     return N, R, Q, node_graph, query
 
 N, R, Q, line, query = get_input()
-print(line)
+
+for key in range(1, N+1):
+
+    if key < R:
+        if line[key] == []:
+            line[key] += [key]
+        else:
+            for ele in line[key]:
+                if ele > key:
+                    if key not in line[ele]:
+                        line[ele] += [key]
+                
+                    line[key].remove(ele)
+                    if line[key] == []:
+                        line[key] += [key]
+
+    if key > R:
+        if line[key] == []:
+            line[key] += [key]
+        else:
+            for ele in line[key]:
+                if ele < key:
+                    if key not in line[ele]:
+                        line[ele] += [key]
+
+                    line[key].remove(ele)
+                    if line[key] == []:
+                        line[key] += [key]
 
 answer = []
 
@@ -38,7 +65,5 @@ for ele in query:
 
     answer.append(len(result))
 
-print(answer)
-
-
-
+for ele in answer:
+    print(ele)
