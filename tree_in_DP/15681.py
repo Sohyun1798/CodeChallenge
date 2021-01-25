@@ -15,19 +15,14 @@ for _ in range(N-1):
  
  
 def count_node(r):
-    print('r', r)
     node_count[r]=1
     for node in Tree[r]:
         if not node_count[node]:
-            print('node', node)
-            print('node count - node', node_count[node])
             count_node(node)
             node_count[r]+=node_count[node]
-            print('node count', node_count)
     return
  
 count_node(R)
- 
  
 for _ in range(Q):
     q=int(sys.stdin.readline())
