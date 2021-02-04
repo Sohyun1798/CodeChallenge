@@ -1,37 +1,30 @@
-def getInput():
+import sys 
+from collections import deque 
 
-    N, M = map(int, input().split())
-    sList = []
+input = sys.stdin.readline 
+n, m = map(int, input().split()) 
+arr = [] 
+inDegree = [ 0 for i in range(32001)] 
+graph = [[] for i in range(32001)] 
+queue = deque() 
 
-    for _ in range(M):
-        sList.append(list(map(int, input().split())))
+for i in range(m): 
+    a, b = map(int, input().split()) 
+    arr.append([a, b]) 
 
-    return N, M, sList
+for a, b in arr:
+    inDegree[b] += 1 
+    graph[a].append(b) 
 
-def TS_2252():
+for i in range(1, n + 1): 
+    if inDegree[i] == 0: 
+        queue.append(i) 
 
-    N, M, sList = getInput()
-
-    topolSort = [i for i in range(1, N+1)]
-
-    for i in range(M):
-
-        A = sList[i][0]
-        B = sList[i][1]
-        Aidx = topolSort.index(A)
-        Bidx = topolSort.index(B)
-
-        if Aidx > Bidx:
-            topolSort[Bidx] = A
-            topolSort[Aidx] = B
-
-    return topolSort
-
-print(TS_2252())
-
-
-
-
-
-
-
+while queue: 
+    student = queue.popleft() 
+    for j in graph[student]: 
+        inDegree[j] -= 1
+        if inDegree[j] == 0:
+            queue.append(j) 
+    
+    print(student, end = ' ')
