@@ -28,6 +28,7 @@ def update(node, start, end, index, diff):
         return
 
     tree[node] += diff
+    print(tree)
 
     if start != end:
         update(node*2, start, (start+end)//2, index, diff)
