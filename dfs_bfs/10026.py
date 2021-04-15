@@ -38,6 +38,8 @@ for i in range(n):
         else:
             copy[i][j] = 2
 
+#copy print => value array
+
 for i in range(n):
     for j in range(n):
         if s[i][j] != 0:
@@ -46,5 +48,7 @@ for i in range(n):
         if copy[i][j] != 0:
             bfs(i, j, copy[i][j], copy)
             cntt += 1
+
+#copy print => zero array
 
 print(cnt, cntt)
