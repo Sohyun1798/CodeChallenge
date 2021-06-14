@@ -7,3 +7,4 @@ N = []
 
 for i in range(T):
     N[i] = input()
+
