@@ -1,4 +1,8 @@
+
+
 class Solution(object):
+
+    dp = [0] * 46 # setting as global variable for solution2
 
     def climbStairs(self, n):
         if n<=2: return n
@@ -9,25 +13,22 @@ class Solution(object):
             dp[i] = dp[i-1]+dp[i-2]
         return dp[n]
 
-
-    def climbStairs(self, n):
+    def climbStairs2(self, n):
         """
         :type n: int
         :rtype: int
         """
-        count = 0
-        count = self.basicFunc(n, count)
+        if n <= 2:
+            return n
+        elif self.dp[n]:
+            return self.dp[n]
+        self.dp[n] = self.climbStairs2(n-1) + self.climbStairs2(n-2)
+        return self.dp[n]
+            
 
-        return count
 
-    def basicFunc(self, m, count):
 
-        if m == 0:
-            return count
-        elif m < 0:
-            return 0
-
-        return self.basicFunc(m-1, count+1), self.basicFunc(m-2, count+1)
+        return 
         
 
 S = Solution()
